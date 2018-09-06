@@ -1,4 +1,4 @@
-int pwmOut = 3;  // The output that drives the LED color
+int PWM_PIN   = 3;  // The output that drives the LED color
 
 int voltages[7] {
   0,    // about zero volts
@@ -10,16 +10,15 @@ int voltages[7] {
   255   // about 5.0 volts
 };
 
-int voltage = 0;
 void setup() {
   Serial.begin(9600);
-  pinMode(pwmOut, OUTPUT);
+  pinMode(PWM_PIN, OUTPUT);
 }
 
 void loop() {
   for (int i = 0; i < 7; i++) {
     Serial.println(voltages[i]);
-    analogWrite(pwmOut, voltages[i]);
+    analogWrite(PWM_PIN, voltages[i]);
     delay(3000);
   }
 }
